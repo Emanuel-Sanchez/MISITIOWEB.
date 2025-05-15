@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motos y Estilos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #000;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .banner {
+            text-align: center;
+            padding: 50px 20px;
+            background-image: url('images/banner.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .service {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .service img {
+            width: 100px;
+            height: auto;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+        }
+
+        .text-content, .news {
+            width: 45%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #000;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MotoStyle</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">INICIO</a></li>
+                <li><a href="#sobre-nosotros">SOBRE NOSOTROS</a></li>
+                <li><a href="#modelos">MODELOS</a></li>
+                <li><a href="#servicios">SERVICIOS</a></li>
+                <li><a href="#contacto">CONTACTO</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="inicio" class="banner">
+        <h1>MOTOS Y ESTILOS</h1>
+        <h2>Descubre los modelos más populares</h2>
+        <div class="banner-image"></div>
+    </section>
+    <section id="servicios" class="services">
+        <div class="service"><img src="icons/sportbike.png" alt="Deportivas"> <p>DEPORTIVAS</p></div>
+        <div class="service"><img src="icons/cruiser.png" alt="Custom"> <p>CRUISER</p></div>
+        <div class="service"><img src="icons/adventure.png" alt="Aventura"> <p>AVENTURA</p></div>
+    </section>
+    <section id="modelos" class="content">
+        <div class="text-content">
+            <h3>Historia de las Motos</h3>
+            <p>Las motocicletas han evolucionado a lo largo de los años, desde modelos clásicos hasta los más modernos y veloces.</p>
+        </div>
+        <div id="sobre-nosotros" class="news">
+            <h4>ÚLTIMAS NOVEDADES</h4>
+            <p>Descubre las últimas noticias y lanzamientos del mundo del motociclismo.</p>
+        </div>
+    </section>
+    <footer id="contacto">
+        <p>+1(234) 444-55-66 | contacto@motos.com | www.motos.com</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const links = document.querySelectorAll("nav ul li a");
+            
+            links.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    const section = this.getAttribute("href").substring(1);
+                    if (section) {
+                        const targetSection = document.getElementById(section);
+                        if (targetSection) {
+                            window.scrollTo({
+                                top: targetSection.offsetTop - 50,
+                                behavior: "smooth"
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
